@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #7b7b7b;
+        }
+
+        #tools {
+            background-color: black;
+            padding: 10px;
+
+        }
+
+        #tools button {
+            padding: 2px 5px;
+        }
+
+        #board {
+            background-color: white;
+            display: block;
+            margin: 10px auto;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="tools">
+        <button onclick="undo()">Undo</button>
+        <button onclick="redo()">Redo</button>
+
+
+        <button onclick="setTool('pen')">Pen</button>
+        <button onclick="setTool('straight')">Straight</button>
+        <button onclick="setTool('rect')">Rectangle</button>
+
+
+        
+        <button onclick="changeColor('#ff0000')">Red</button>
+        <button onclick="changeColor('#00ff00')">Green</button>
+        <button onclick="changeColor('#0000ff')">Blue</button>
+        <button onclick="changeColor('#000000')">Black</button>
+
+        <button onclick="changeLineWidth(1)">1</button>
+        <button onclick="changeLineWidth(2)">2</button>
+        <button onclick="changeLineWidth(3)">3</button>
+        <button onclick="changeLineWidth(4)">4</button>
+        <button onclick="changeLineWidth(5)">5</button>
+
+        
+    </div>
+    <canvas id="board"></canvas>
+
+    <script type="text/javascript" src="paint.js"></script>
+    <script type="text/javascript">
+        function changeColor(color){
+            p.color = color;
+        }
+        function changeLineWidth(lineWidth){
+            p.lineWidth = lineWidth;
+        }
+        function setTool(tool){
+            p.tool = tool;
+        }
+        function undo(){
+            p.undo()
+        }
+        function redo(){
+            p.redo()
+        }
+    </script>
+</body>
+</html>
